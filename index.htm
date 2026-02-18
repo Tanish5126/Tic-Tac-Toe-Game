@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neon Tic Tac Toe</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+  <!-- CONFETTI -->
+  <div class="confetti-container" id="confetti"></div>
+
+  <!-- ===== START SCREEN ===== -->
+  <section class="screen" id="start-screen" aria-label="Start Screen">
+    <div class="title-wrap">
+      <h1 class="game-title">TIC TAC TOE</h1>
+      <p class="subtitle">New Edition</p>
+    </div>
+
+    <div class="preview-grid" aria-hidden="true">
+      <div class="preview-cell x">X</div>
+      <div class="preview-cell o">O</div>
+      <div class="preview-cell"></div>
+      <div class="preview-cell"></div>
+      <div class="preview-cell x">X</div>
+      <div class="preview-cell"></div>
+      <div class="preview-cell o">O</div>
+      <div class="preview-cell"></div>
+      <div class="preview-cell x">X</div>
+    </div>
+
+    <div class="mode-select">
+      <span class="mode-label">Select Mode</span>
+      <div class="mode-btns" role="group" aria-label="Game mode">
+        <button class="mode-btn active" data-mode="pvp" aria-pressed="true">2 Players</button>
+        <button class="mode-btn" data-mode="cpu" aria-pressed="false">vs CPU</button>
+      </div>
+    </div>
+
+    <button class="btn-primary" id="start-btn">START GAME</button>
+  </section>
+
+  <!-- ===== GAME SCREEN ===== -->
+  <section class="screen hidden" id="game-screen" aria-label="Game Screen">
+    <header class="game-header">
+      <button class="ghost-btn" id="back-btn">← Menu</button>
+      <span class="round-info" id="round-info">Round 1</span>
+      <button class="ghost-btn" id="restart-btn">Restart</button>
+    </header>
+
+    <div class="scoreboard" role="region" aria-label="Scoreboard">
+      <div class="score-card x-card active-turn" id="score-x">
+        <div class="score-player">Player X</div>
+        <div class="score-mark">X</div>
+        <div class="score-number" id="wins-x">0</div>
+      </div>
+      <div class="score-divider">
+        <span class="draws-label">Draws</span>
+        <div class="draws-count" id="draws">0</div>
+      </div>
+      <div class="score-card o-card" id="score-o">
+        <div class="score-player" id="o-label">Player O</div>
+        <div class="score-mark">O</div>
+        <div class="score-number" id="wins-o">0</div>
+      </div>
+    </div>
+
+    <div class="timer-wrap" aria-label="Turn timer">
+      <div class="timer-bar-bg">
+        <div class="timer-bar" id="timer-bar"></div>
+      </div>
+    </div>
+
+    <div class="turn-indicator x-turn" id="turn-indicator" aria-live="polite">
+      Player X's turn
+    </div>
+
+    <main class="game-grid" id="game-grid" role="grid" aria-label="Tic Tac Toe board">
+      <!-- Cells injected by JS -->
+    </main>
+  </section>
+
+  <!-- ===== GAME OVER SCREEN ===== -->
+  <section class="screen hidden" id="gameover-screen" aria-label="Game Over Screen">
+    <div class="result-badge">
+      <div class="result-icon" id="result-icon">X</div>
+      <h2 class="result-title" id="result-title">Player X Wins!</h2>
+      <p class="result-sub" id="result-sub">Round complete</p>
+      <div class="final-scores">
+        <div class="fs-item">
+          <span class="fs-label">X Wins</span>
+          <span class="fs-val x" id="final-x">0</span>
+        </div>
+        <div class="fs-item">
+          <span class="fs-label">Draws</span>
+          <span class="fs-val" id="final-d">0</span>
+        </div>
+        <div class="fs-item">
+          <span class="fs-label">O Wins</span>
+          <span class="fs-val o" id="final-o">0</span>
+        </div>
+      </div>
+    </div>
+    <div class="gameover-btns">
+      <button class="btn-primary" id="next-round-btn">NEXT ROUND</button>
+      <button class="ghost-btn wide" id="menu-btn">Back to Menu</button>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
